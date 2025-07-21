@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Digital Solutions – Stylish Dark</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- FontAwesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+    :root {
+        --primary: #3643e6;
+        --primary-dark: #1e2760;
+        --paper: #181e34;
+        --surface: #242c47;
+        --accent: #d7263d;
+        --accent2: #00bdbd;
+        --accent-glow: #306fff;
+        --text-main: #f0eeff;
+        --text-secondary: #b5b9d1;
+        --shadow: 0 10px 40px rgba(56,56,120,0.14), 0 2px 32px #25257420;
+    }
+    html, body {
+        margin:0; padding:0;
+        font-family: 'Segoe UI', Arial, sans-serif; 
+        background: var(--paper);
+        color: var(--text-main);
+        scroll-behavior:smooth;
+        min-height:100vh;
+    }
+    body { min-height:100vh; display:flex; flex-direction:column; }
+
+    header {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%;
+        z-index: 1000;
+        background: rgba(24, 30, 52, 0.97);
+        box-shadow: 0 2px 16px rgba(73,85,225, 0.12);
+        backdrop-filter: blur(4px);
+        border-bottom: 1px solid #272c4b;
+        transition: background 0.3s;
+    }
+    .nav-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1em 1.6em 1em 1.6em;
+    }
+    .logo-area {
+        display: flex;
+        align-items: center;
+    }
+    .logo-area img {
+        width: 46px; height: 46px;
+        border-radius: 7px;
+        margin-right: 0.85em;
+        object-fit: cover;
+        background: var(--surface);
+    }
+    nav { display: flex; align-items: center; gap: 1.5em; }
+    nav a {
+        text-decoration: none;
+        color:var(--text-secondary);
+        font-weight: 500;
+        margin: 0 0.4em;
+        padding: 0.5em 1.15em;
+        border-radius: 6px;
+        letter-spacing: 0.02em;
+        font-size: 1.08em;
+        transition: 
+            background 0.2s,
+            color 0.2s,
+            box-shadow .2s;
+    }
+    nav a.active, nav a:hover {
+        background: var(--primary);
+        color: #fff;
+        box-shadow: 0 2px 14px var(--accent-glow);
+    }
+    /* Top Padding for fixed header */
+    .spacer { height:82px;}
+    @media (max-width: 700px) {
+        .nav-container { padding: 0.7em 0.7em; }
+        .spacer { height:112px;}
+    }
+    main {
+        max-width: 1200px;
+        margin:0 auto;
+        flex: 1 0 auto;
+        padding:0;
+    }
+    section {
+        background: linear-gradient(135deg, #171c31 60%, #171c31 80%, #232d4e 100%);
+        margin-bottom: 2em; 
+        border-radius: 25px;
+        box-shadow: var(--shadow);
+        padding: 2.2em 2.7em;
+        min-height: 100vh;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border: 1.5px solid #262c3f;
+        position: relative;
+        overflow: hidden;
+    }
+    section h2 {
+        text-shadow: 0 1px 20px var(--primary-dark), 0 2px 8px var(--accent2)44;
+        color: var(--accent2);
+        font-size: 2em;
+        margin-bottom: 0.45em;
+        letter-spacing: .03em;
+    }
+    /* Home */
+    #home {
+        align-items: center; 
+        justify-content: center; 
+        text-align: center;
+        background: linear-gradient(113deg, #282375 5%, #222c40 50%, #13182e 100%);
+        box-shadow: 0 12px 60px #23238977, var(--shadow);
+    }
+    #home h2 { font-size: 2.3em; }
+    #home p { color: var(--text-secondary); font-size: 1.18em; max-width: 600px; margin: 0 auto 1.8em;}
+    #home .cta-btn {
+        background: var(--accent2);
+        color: #fff;
+        border: none;
+        border-radius: 7px;
+        padding: 1.07em 3em;
+        font-size: 1.3em;
+        font-weight: 600;
+        letter-spacing: 0.03em;
+        cursor: pointer;
+        margin-top: 1em;
+        margin-bottom: 0.8em;
+        box-shadow: 0 0 24px var(--accent2), 0 10px 40px #30feee31;
+        transition: background 0.3s, box-shadow .2s;
+    }
+    #home .cta-btn:hover { background: var(--primary); box-shadow:0 5px 20px #c7d4ff3d;}
+    /* About */
+    #about p { color: var(--text-secondary); font-size:1.17em; max-width:800px;}
+    .about-images {
+        display: flex;
+        justify-content: center;
+        gap: 1.1em;
+        margin: 2.4em 0 0.3em 0;
+        flex-wrap: wrap;
+    }
+    .about-images img {
+        width: 220px;
+        height: 138px;
+        object-fit: cover;
+        border-radius: 18px;
+        background: var(--primary-dark);
+        box-shadow: 0 0 25px var(--accent-glow),0 1px 34px #49498d19;
+        border: 2px solid var(--accent2);
+        filter: grayscale(4%) contrast(1.18);
+        transition: filter .2s, transform .2s;
+    }
+    .about-images img:hover { filter: none; transform: scale(1.07);}
+    @media (max-width:920px) {
+        .about-images { flex-direction: column; align-items: center; }
+        .about-images img { margin-bottom:1.1em; width:95vw; max-width:330px;}
+    }
+    /* Services */
+    #services h2 {color:var(--accent);}
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+        gap: 2em;
+        margin-top:2.3em;
+    }
+    .service-box {
+        background: linear-gradient(125deg, #252b4e 60%, #21273a 100%);
+        border: 1.3px solid var(--primary-dark);
+        border-radius: 19px;
+        box-shadow: 0 0 26px 5px #4352b435, 0 4px 18px #36369a33;
+        padding: 2em 1.3em 1.7em 1.3em;
+        text-align: center;
+        transition: box-shadow 0.17s, transform .16s;
+        position: relative;
+        overflow: hidden;
+    }
+    .service-box::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        border-radius: 24px;
+        box-shadow: 0 0 46px 10px var(--accent2)21, 0 4px 48px #3643e622;
+        opacity:0.22;
+    }
+    .service-box:hover {
+        box-shadow: 0 8px 50px 5px var(--accent-glow), 0 14px 40px #221ee800;
+        transform: translateY(-4px) scale(1.02);
+        z-index:1;
+    }
+    .service-box img {
+        width: 66px;
+        height: 66px;
+        margin-bottom: 1em;
+        border-radius: 16px;
+        background: #212647;
+        box-shadow: 0 0 15px 2px var(--primary-dark);
+        object-fit: contain;
+    }
+    .service-box h3 {color: var(--accent2);margin-bottom:0.66em;}
+    .service-box p {color:var(--text-secondary);}
+    /* Contact */
+    #contact h2 {color:var(--accent2);}
+    .contact-flex { display:flex; gap:3em;}
+    .contact-info { flex: 1.3;}
+    .contact-info h3 {margin-top:0; color:var(--accent);}
+    .contact-info p, .contact-info a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        word-break: break-all;
+    }
+    .social-icons { margin: 1.15em 0;}
+    .social-icons a {
+        font-size: 2em;
+        margin-right: 1em;
+        color: #fff;
+        display:inline-block;
+        width:45px;height:45px;
+        text-align:center;line-height:45px;
+        border-radius:50%;
+        background: linear-gradient(135deg,var(--primary),var(--accent2));
+        transition: filter 0.19s, box-shadow .2s;
+        box-shadow: 0 2px 17px #4968e930;
+        border: 2px solid #2edcd4;
+    }
+    .whatsapp {background: linear-gradient(135deg,#089e61 40%,#25d366 100%);}
+    .instagram {background: radial-gradient(circle,#fd5,#e1306c 60%,#833ab4 100%);}
+    .twitter {background: linear-gradient(135deg,#1da1f2 70%,#0a6dda 100%);}
+    .social-icons a:hover { filter:brightness(1.17) contrast(1.22); box-shadow:0 4px 26px #8ff8ff80;}
+    .contact-form {
+        flex:2.1;
+        background: linear-gradient(120deg,#202747 60%, #262c47 100%);
+        border-radius: 17px;
+        box-shadow: 0 2px 22px 0 #317dd832, 0 2px 30px #27648817;
+        border: 1px solid #282deb;
+        padding: 2em 1.2em;
+    }
+    .contact-form form { display: flex; flex-direction:column;gap:1.1em; }
+    .contact-form label { font-weight: 500; color: var(--accent2);}
+    .contact-form input, .contact-form textarea {
+        padding: 0.6em 0.9em;
+        border: 1.4px solid #333e61;
+        background: #1a2139;
+        color: var(--text-main);
+        border-radius: 6px;
+        font-size: 1.08em;
+        resize: none;
+        margin-top:5px;
+        box-shadow: 0 2px 22px #2030b513;
+    }
+    .contact-form input:focus, .contact-form textarea:focus { border-color: var(--accent2);}
+    .contact-form textarea { min-height: 90px;}
+    .contact-form button {
+        background: linear-gradient(90deg, var(--primary), var(--accent2) 75%);
+        color: #fff;
+        border:none;
+        border-radius:6px;
+        padding: 1em 0;
+        font-size: 1.08em;
+        font-weight: 600;
+        box-shadow: 0 2px 19px #2fdffe3f;
+        cursor:pointer;
+        letter-spacing:0.04em
+    }
+    .contact-form button:hover { background: linear-gradient(90deg, var(--accent2), var(--primary) 75%);}
+    @media (max-width: 1040px) {
+        .contact-flex { flex-direction:column; gap:2.1em;}
+        .contact-form{width:100%;}
+    }
+    /* Footer */
+    footer {
+        width:100%;
+        background: #1a1632;
+        color: #c1c4ef;
+        text-align:center;
+        padding: 1.2em 0 1em 0;
+        font-size:1.07em;
+        border-top: 1.8px solid #23366b;
+        letter-spacing:0.01em;
+        flex-shrink: 0;
+        box-shadow: 0 -2px 16px #2da6a220;
+    }
+    /* Responsive fixes */
+    @media (max-width:700px){
+        section { padding: 0.8em 0.1em; border-radius:11px;}
+        .nav-container { flex-direction: column; align-items:flex-start; gap:0.7em;}
+        .logo-area span { font-size:1.16em;}
+    }
+    </style>
+</head>
+<body>
+<header>
+    <div class="nav-container">
+        <div class="logo-area">
+            <img src="image/hazzino fav icon.png" alt="Company Logo">
+            <span>Digital Solutions</span>
+        </div>
+        <nav>
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#about" class="nav-link">About Us</a>
+            <a href="#services" class="nav-link">Services</a>
+            <a href="#contact" class="nav-link">Contact Us</a>
+        </nav>
+    </div>
+</header>
+<div class="spacer"></div>
+<main>
+    <!-- HOME -->
+    <section id="home">
+        <h2>Welcome to Digital Solutions</h2>
+        <p>Empowering your business with the best in web, mobile, software, and DevOps services. We deliver digital excellence with innovation, reliability, and expertise.</p>
+        <button class="cta-btn" onclick="location.href='#contact'">Contact Us</button>
+    </section>
+    <!-- ABOUT US -->
+    <section id="about">
+        <h2>About Us</h2>
+        <p>
+            Digital Solutions is dedicated to transforming businesses for the digital era. With a team of innovative developers, designers, and consultants, we help our clients harness technology to streamline operations and engage their audiences. Our focus on quality and client satisfaction drives us to exceed expectations on every project.
+        </p>
+        <div class="about-images">
+            <img src="about1.jpg" alt="Our Team">
+            <img src="about2.jpg" alt="Our Workspace">
+            <img src="about3.jpg" alt="Collaboration">
+        </div>
+    </section>
+    <!-- SERVICES -->
+    <section id="services">
+        <h2>Our Services</h2>
+        <div class="services-grid">
+            <div class="service-box">
+                <img src="https://img.icons8.com/windows/96/30feee/web.png" alt="Web Development">
+                <h3>Web Development</h3>
+                <p>We build modern, responsive websites that load fast, look great on all devices, and deliver smooth user experiences.</p>
+            </div>
+            <div class="service-box">
+                <img src="https://img.icons8.com/ios-filled/96/00bdbd/smartphone-tablet.png" alt="Mobile Apps">
+                <h3>Mobile Applications</h3>
+                <p>We design and develop mobile applications that are fast, user-friendly, and work seamlessly across Android and iOS devices.</p>
+            </div>
+            <div class="service-box">
+                <img src="https://img.icons8.com/ios/96/e1306c/consulting.png" alt="Consulting">
+                <h3>Software Consulting</h3>
+                <p>Our software consulting services help businesses choose the right technologies, improve workflows, and build efficient, scalable digital solutions.</p>
+            </div>
+            <div class="service-box">
+                <img src="https://img.icons8.com/external-icongeek26-outline-icongeek26/96/3643e6/external-devops-devops-icongeek26-outline-icongeek26.png" alt="DevOps">
+                <h3>DevOps</h3>
+                <p>DevOps combines development and operations to deliver software faster and more reliably through automation, collaboration, and continuous integration.</p>
+            </div>
+        </div>
+    </section>
+    <!-- CONTACT US -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-flex">
+            <div class="contact-info">
+                <h3>Contact Details</h3>
+                <p><strong>Phone:</strong> <a href="tel:+919876543210">+91 98765 43210</a></p>
+                <p><strong>Email:</strong> <a href="mailto:info@digitalsolutions.com">info@digitalsolutions.com</a></p>
+                <p><strong>Address:</strong> <br>
+                    101 Silicon Avenue,<br>
+                    Tech Park City, 900001, India
+                </p>
+                <div class="social-icons">
+                    <a class="whatsapp" href="https://wa.me/919876543210" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a class="instagram" href="https://www.instagram.com/yourcompanyid/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a class="twitter" href="https://twitter.com/yourcompanyid" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form onsubmit="alert('Thank you for your message!');this.reset();return false;">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="number">Number:</label>
+                    <input type="tel" id="number" name="number" required pattern="[0-9]{10,}">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" required></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+<footer>
+    &copy; 2025 Digital Solutions. All rights reserved.
+</footer>
+<script>
+    // Nav highlighting on scroll
+    const navLinks = document.querySelectorAll('.nav-link');
+    window.addEventListener('scroll', function() {
+        let current = '';
+        document.querySelectorAll('section').forEach((section) => {
+            const sectionTop = section.offsetTop - 120;
+            if (pageYOffset >= sectionTop) current = section.getAttribute('id');
+        });
+        navLinks.forEach((link) => {
+            link.classList.remove('active');
+            if(link.getAttribute('href') === '#' + current) link.classList.add('active');
+        });
+    });
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e){
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if(target) target.scrollIntoView({behavior: 'smooth', block:'start'});
+        });
+    });
+</script>
+</body>
+</html>

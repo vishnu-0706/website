@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Web</title>
+    <link rel="icon" href="https://i.postimg.cc/FKnfr7gb/hazzino-fav-icon.png" >
+</head>
+<style>
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-image: url(https://images.pexels.com/photos/2098427/pexels-photo-2098427.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    box-sizing: border-box;
+    background-size: cover;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-style: oblique;
+    height: 420vh;
+    color: #F5F5F4;
+}
+header{
+    background-color: black;
+    color: #F5F5F4;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    height: 70px ;
+    z-index: 10;
+}
+nav a{
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 15px;
+}
+.home{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+    color: white;
+
+}
+h1{
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+.home p{
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+section{
+    width: 100%;
+    height: 105vh;
+}
+.about h2{
+    color: azure;
+    margin-bottom: 20px;
+    font-size: 30px;
+    text-align: center; 
+}
+.about p{
+    font-size: 15px;
+    color: azure;
+    margin-inline-start: 0px;
+    text-align: center;
+}
+section ul{
+    font-size: 15px;
+    text-align: center;
+    color: azure;
+    list-style: none;
+}
+footer{
+    width: 100%;
+    height: 75px;
+    background-color: color-mix(in srgb, black 100%, white 15%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.about p{
+    width: 400px;
+    height: 100%;
+}
+.us{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.img-cont {
+    width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.img-style1 {
+    width: 150px;
+    height: auto;
+    border-radius: 20px;
+    transform: rotate(5deg);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+
+}
+.img-style2 {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    transform: rotate(-5deg);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+
+}
+.img-style3 {
+    width: 150px;
+    height: auto;
+    transform: rotate(-5deg);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+}
+.ser_container{
+    width: 100%;
+    height: 100%;
+}
+.main_box{
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-wrap: wrap;
+}
+.content{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sub_1{
+    width: 100%;
+    height: 50%;
+    display: flex;  
+}
+.sub_2{
+    width: 100%;
+    height: 50%;
+    display: flex;
+}
+.content h2{
+    padding-top: 166px;
+}
+.box {
+    width: 300px;
+    max-width: 800px;
+    height: 300px;
+    margin: 0px auto;
+    padding: 10px 30px;
+    background-color: #1B1B1B;
+    border-left: 6px solid #3ca1a8;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    transition: transform 0.5s ease-in-out;
+}
+.box:hover {
+    transform: scale(1.05);
+}
+.box_img{
+    width: 100%;
+    height: 40%;
+    border-radius: 12px;
+}
+.box_img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    object-fit: fill;
+}
+.box_cont{
+    width: 100%;
+    height: 60%;
+    color: aliceblue;
+}
+.box_cont h3{
+    font-size: 20px;
+    font-weight: 100;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 30%;
+    color: #F5F5F4;
+}
+.box_cont p{
+    width: 100%;
+    height: 70%;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    color: #F5F5F4;
+    margin-bottom: 0px;
+}
+.side_contact{
+    width: 50%;
+    height: 105vh;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 40px 20px;
+}
+.right_form{
+    width: 50%;
+    height: 105vh;
+}
+section#C{
+    display: flex;
+    flex-wrap: wrap;
+}
+.contact-section {
+    max-width: 600px;
+    height: 85vh;
+    margin: 70px auto;
+    padding: 30px;
+    background-color: rgb(0, 0, 0 ,0.5);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.contact-section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #f0efef;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.contact-form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #45a049;
+}
+.main_cont {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.contact_box {
+    width: 40%;
+    height: 150px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.contact_box:hover {
+    transform: translateY(-5px);
+}
+
+.contact_box h2 {
+    margin-bottom: 5px;
+    font-size: 22px;
+    color: #333;
+}
+
+.contact_box p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.5;
+}
+.contact-container {
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    padding: 50px 20px;
+}
+
+.contact-box {
+    background-color: rgb(0, 0, 0, 0.7);
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+    text-align: left;
+    transition: transform 0.3s ease;
+    color: #F5F5F4;
+    border-bottom: 1px solid blue;
+}
+
+.contact-box:hover {
+    transform: translateY(-5px);
+}
+
+.contact-box h2 {
+    font-size: 26px;
+    margin-bottom: 20px;
+    color: #fcfafa;
+}
+
+.contact-box p {
+    font-size: 16px;
+    color: #e7d7d7;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+</style>
+<body>
+    <header>
+        <img src="https://i.postimg.cc/52syg6Gc/logohaz.png" alt="">
+        <nav>
+            <ul class="nav" style="column-count: 4; list-style: none;"">
+                <li><a href="#h">Home</a></li>
+                <li><a href="#A">About</a></li>
+                <li><a href="#S">Services</a></li>
+                <li><a href="#C">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="home" id="h">
+        <h1>Hazzino Technologies</h1>
+        <p>Hazzino Technologies is a dynamic technology services provider headquartered in Theni, Tamil Nadu, dedicated to enabling digital transformation for businesses across India.</p>
+    </div>
+    <section class="us" id="A">
+        <div class="about">
+            <h2>About Us</h2>
+            <p>Over 07 years of experience empowering you with premier software development and training guidance. We specialize in delivering real-world solutions and upskilling individuals and teams. Trusted by clients across industries to transform ideas into scalable, high-performance applications.</p>
+        </div>
+        <div class="img-cont">
+                <img src="https://i.postimg.cc/QCgxTt5y/images-1.jpg" alt="Image 1" class="img-style1">
+                <img src="https://i.postimg.cc/Y2QSVXVz/demo.jpg" alt="Image 2" class="img-style2">
+                <img src="https://i.postimg.cc/ncZLt4fb/images.jpg" alt="Image 3" class="img-style3">
+        </div>
+    </section>
+    <section id="S">
+        <div class="ser_container">
+            <div class="content"><h2>Our Services</h2></div>
+            <div class="main_box">
+                <div class="box">
+                    <div class="box_img">
+                        <img src="https://thumbs.dreamstime.com/b/web-development-word-abstract-wood-type-vintage-letterpress-printing-blocks-against-grunge-cup-coffee-88511362.jpg?w=768" alt="">
+                    </div>
+                    <div class="box_cont">
+                        <h3>Web development</h3>
+                        <p>We build modern, responsive websites that load fast, look great on all devices, and deliver smooth user experiences.</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="box_img">
+                        <img src="https://eluminoustechnologies.com/assets/images/mobile_app/app-development-top.webp" alt="">
+                    </div>
+                    <div class="box_cont">
+                        <h3>Mobile Applications</h3>
+                        <p>We design and develop mobile applications that are fast, user-friendly, and work seamlessly across Android and iOS devices.</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="box_img">
+                        <img src="https://w0.peakpx.com/wallpaper/370/667/HD-wallpaper-it-consulting-services-company-in-africa-best-it-consulting-best-it-consulting-services-it-consulting-it-consulting-services.jpg" alt="">
+                    </div>
+                    <div class="box_cont">
+                        <h3>software Consulting</h3>
+                        <p>Our software consulting services help businesses choose the right technologies, improve workflows, and build efficient, scalable digital solutions.</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="box_img">
+                        <img src="https://as1.ftcdn.net/v2/jpg/05/12/04/52/1000_F_512045284_gsbCu75oyqHo59MccBltJe0sJRck1PPa.jpg" alt="">
+                    </div>
+                    <div class="box_cont">
+                        <h3>Devops</h3>
+                        <p>Devops combines development and operations to deliver software faster and more reliably through automation, collaboration, and continuous integration.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="C">
+        <div class="side_contact">
+            <div class="contact-container">
+                <div class="contact-box">
+                    <h2>Contact Us</h2>
+                    <p><strong>Phone:</strong> +91 98765 43210</p>
+                    <p><strong>Email:</strong><br>
+                        hazzinodemo@gmail.com<br>
+                        hazzinoceo@gmail.com
+                    </p>
+                    <p><strong>Address:</strong><br>
+                    1529/14, Kottaikalam Rd,<br>
+                    Theni Allinagaram, Theni (DT)
+                </p>
+                </div>
+            </div>
+        </div>
+        <div class="right_form">
+            <section class="contact-section">
+                <h2>Contact Us</h2>
+                <form class="contact-form" action="#" method="POST">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <input type="text" name="num" placeholder="Your Number" required>
+                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </section>
+        </div>
+    </section>
+    <footer>
+        <h3>© 2025 Hazzino Technologies. All Rights Reserved.</h3>
+    </footer>
+</body>
+</html>

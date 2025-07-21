@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Digital Solutions – Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- FontAwesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2233aa;
+            --accent: #47a7f5;
+            --bg: #f4f7fd;
+        }
+        html, body {
+            margin:0; padding:0; font-family:'Segoe UI', Arial, sans-serif; background:var(--bg); color:#222;
+            scroll-behavior: smooth;
+            height:100%;
+        }
+        body { height:100%; }
+        header {
+            background: white;
+            box-shadow: 0 2px 8px rgba(34,51,170,0.04);
+            position: sticky; top:0; z-index: 100;
+        }
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0.7em 1.5em;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+        }
+        .logo-area img {
+            height: 42px;
+            width: 42px;
+            margin-right: 0.8em;
+            border-radius: 7px;
+        }
+        .logo-area span { font-size: 1.45em; font-weight: 600; letter-spacing:0.02em; color:var(--primary);}
+        nav { display: flex; align-items: center; gap: 1em; }
+        nav a {
+            text-decoration: none;
+            color: #222;
+            font-weight: 500;
+            margin: 0 0.5em;
+            padding: 0.4em 0.9em;
+            border-radius: 4px;
+            transition: background 0.2s, color 0.2s;
+        }
+        nav a.active, nav a:hover {
+            background: var(--primary);
+            color: #fff;
+        }
+        main { max-width: 1100px; margin:0 auto; padding:0; }
+        section {
+            background: #fff;
+            margin-bottom: 2em;
+            border-radius: 13px;
+            box-shadow:0 8px 30px rgba(34,51,170,0.04);
+            padding: 2em 2.5em;
+            min-height: 100vh;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        @media (max-width: 700px) {
+            main { padding: 0.4em; }
+            section { padding: 1.2em 0.6em; }
+            .nav-container { padding: 0.7em 0.7em; }
+        }
+        /* HOME SECTION */
+        #home { 
+            display: flex; 
+            flex-direction:column; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center;
+        }
+        #home h2 { font-size: 2em; color:var(--primary); margin-bottom: 0.25em; }
+        #home p { color:#484a66; font-size: 1.1em; margin-bottom:1.5em;}
+        #home .cta-btn {
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 0.8em 2.2em;
+            font-size: 1.2em;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            cursor: pointer;
+            box-shadow:0 2px 8px rgba(71,167,245,0.1);
+            transition: background 0.3s;
+        }
+        #home .cta-btn:hover { background:var(--primary); }
+        /* ABOUT SECTION */
+        #about h2 { color:var(--primary);}
+        #about p {color:#484a66;font-size:1.12em;}
+        .about-images {
+            display: flex;
+            justify-content: center;
+            gap: 1.2em;
+            margin: 2em 0 0.5em 0;
+            flex-wrap: wrap;
+        }
+        .about-images img {
+            width: 210px;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 2px 16px rgba(34,51,170,0.07);
+            background: #eee;
+        }
+        @media (max-width:750px){
+            .about-images {flex-direction:column; align-items:center;}
+            .about-images img {margin-bottom:1em; width:90vw; max-width:380px; height:140px;}
+        }
+        /* SERVICES SECTION */
+        #services h2 {color:var(--primary);}
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px,1fr));
+            gap: 1.5em;
+            margin-top:2em;
+        }
+        .service-box {
+            background: #fafdff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(34, 51, 170, 0.03);
+            padding: 1.4em;
+            text-align: center;
+            transition: box-shadow 0.2s;
+        }
+        .service-box:hover {
+            box-shadow: 0 8px 30px rgba(71, 167, 245, 0.12);
+        }
+        .service-box img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 1em;
+        }
+        .service-box h3 {color: #283576; margin-bottom:0.6em;}
+        .service-box p {color:#4f5371;}
+        /* CONTACT SECTION */
+        #contact h2 {color:var(--primary);}
+        .contact-flex {
+            display:flex; gap:2.5em;
+        }
+        .contact-info { flex: 1.2; }
+        .contact-info h3 {margin-top:0;}
+        .contact-info p, .contact-info a {
+            color:#45476c;
+            text-decoration: none;
+            word-break: break-all;
+        }
+        .social-icons {
+            margin: 0.9em 0;
+        }
+        .social-icons a {
+            font-size: 1.85em;
+            margin-right: 1.1em;
+            color: #fff;
+            display:inline-block;
+            width:40px;height:40px;
+            text-align:center;line-height:40px;
+            border-radius:50%;
+            transition: filter 0.2s;
+        }
+        .whatsapp {background: #25d366;}
+        .instagram {background: #e1306c;}
+        .twitter {background: #1da1f2;}
+        .social-icons a:hover { filter:brightness(0.82);}
+        .contact-form {
+            flex: 1.6;
+            background: #f7f9ff;
+            border-radius: 10px;
+            box-shadow:0 2px 12px rgba(71,167,245,0.05);
+            padding:1.5em;
+        }
+        .contact-form form { display: flex; flex-direction:column;gap:1em;}
+        .contact-form label { font-weight: 500;}
+        .contact-form input, .contact-form textarea {
+            padding: 0.6em;
+            border: 1px solid #bbc5ee;
+            border-radius: 5px;
+            font-size: 1.05em;
+            resize: none;
+        }
+        .contact-form textarea { min-height: 90px;}
+        .contact-form button {
+            background: var(--primary);
+            color: #fff;
+            border:none;
+            border-radius:4px;
+            padding: 0.7em 0;
+            font-size: 1.07em;
+            font-weight: 600;
+            cursor:pointer;
+        }
+        .contact-form button:hover { background:var(--accent);}
+        @media (max-width: 900px) {
+            .contact-flex { flex-direction:column; gap:1.6em;}
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="nav-container">
+        <div class="logo-area">
+            <img src="your_logo.png" alt="Company Logo">
+            <span>Digital Solutions</span>
+        </div>
+        <nav>
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#about" class="nav-link">About Us</a>
+            <a href="#services" class="nav-link">Services</a>
+            <a href="#contact" class="nav-link">Contact Us</a>
+        </nav>
+    </div>
+</header>
+<main>
+    <!-- HOME -->
+    <section id="home">
+        <h2>Welcome to Digital Solutions</h2>
+        <p>Empowering your business with the best in web, mobile, software, and DevOps services. We deliver digital excellence with innovation, reliability, and expertise.</p>
+        <button class="cta-btn" onclick="location.href='#contact'">Contact Us</button>
+    </section>
+    <!-- ABOUT US -->
+    <section id="about">
+        <h2>About Us</h2>
+        <p>
+            Digital Solutions is dedicated to transforming businesses for the digital era. With a team of innovative developers, designers, and consultants, we help our clients harness technology to streamline operations and engage their audiences. Our focus on quality and client satisfaction drives us to exceed expectations on every project.
+        </p>
+        <div class="about-images">
+            <img src="about1.jpg" alt="Our Team">
+            <img src="about2.jpg" alt="Our Workspace">
+            <img src="about3.jpg" alt="Collaboration">
+        </div>
+    </section>
+    <!-- SERVICES -->
+    <section id="services">
+        <h2>Our Services</h2>
+        <div class="services-grid">
+            <div class="service-box">
+                <img src="https://img.icons8.com/windows/96/2233aa/web.png" alt="Web Development">
+                <h3>Web Development</h3>
+                <p>We build modern, responsive websites that load fast, look great on all devices, and deliver smooth user experiences.</p>
+            </div>
+            <div class="service-box">
+                <img src="https://img.icons8.com/ios-filled/96/2233aa/smartphone-tablet.png" alt="Mobile Apps">
+                <h3>Mobile Applications</h3>
+                <p>We design and develop mobile applications that are fast, user-friendly, and work seamlessly across Android and iOS devices.</p>
+            </div>
+            <div class="service-box">
+                <img src="https://img.icons8.com/ios/96/2233aa/consulting.png" alt="Consulting">
+                <h3>Software Consulting</h3>
+                <p>Our software consulting services help businesses choose the right technologies, improve workflows, and build efficient, scalable digital solutions.</p>
+            </div>
+            <div class="service-box">
+                <img src="https://img.icons8.com/external-icongeek26-outline-icongeek26/96/2233aa/external-devops-devops-icongeek26-outline-icongeek26.png" alt="DevOps">
+                <h3>DevOps</h3>
+                <p>DevOps combines development and operations to deliver software faster and more reliably through automation, collaboration, and continuous integration.</p>
+            </div>
+        </div>
+    </section>
+    <!-- CONTACT US -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-flex">
+            <div class="contact-info">
+                <h3>Contact Details</h3>
+                <p><strong>Phone:</strong> <a href="tel:+919876543210">+91 98765 43210</a></p>
+                <p><strong>Email:</strong> <a href="mailto:info@digitalsolutions.com">info@digitalsolutions.com</a></p>
+                <p><strong>Address:</strong> <br>
+                    101 Silicon Avenue,<br>
+                    Tech Park City, 900001, India
+                </p>
+                <div class="social-icons">
+                    <a class="whatsapp" href="https://wa.me/919876543210" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a class="instagram" href="https://www.instagram.com/yourcompanyid/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a class="twitter" href="https://twitter.com/yourcompanyid" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form onsubmit="alert('Thank you for your message!');this.reset();return false;">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="number">Number:</label>
+                    <input type="tel" id="number" name="number" required pattern="[0-9]{10,}">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" required></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+<script>
+    // Nav highlighting (single page style)
+    const navLinks = document.querySelectorAll('.nav-link');
+    window.addEventListener('scroll', function() {
+        let current = '';
+        document.querySelectorAll('section').forEach((section) => {
+            const sectionTop = section.offsetTop - 100;
+            if (pageYOffset >= sectionTop) current = section.getAttribute('id');
+        });
+        navLinks.forEach((link) => {
+            link.classList.remove('active');
+            if(link.getAttribute('href') === '#' + current) link.classList.add('active');
+        });
+    });
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e){
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if(target) target.scrollIntoView({behavior: 'smooth', block:'start'});
+        });
+    });
+</script>
+</body>
+</html>
